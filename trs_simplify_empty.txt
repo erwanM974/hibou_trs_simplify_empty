@@ -1,0 +1,27 @@
+(VAR x)
+(THEORY (AC alt) (AC par) (A strict) (A seq))
+(RULES
+
+  strict(x,0) -> x  
+  seq(x,0) -> x  
+  par(x,0) -> x
+
+  strict(0,x) -> x  
+  seq(0,x) -> x  
+  par(0,x) -> x
+   
+  alt(0,0) -> 0
+
+  loopS(0) -> 0  
+  loopW(0) -> 0  
+  loopP(0) -> 0
+  
+  alt(0,loopS(x)) -> loopS(x)
+  alt(loopS(x),0) -> loopS(x)
+
+  alt(0,loopW(x)) -> loopW(x)
+  alt(loopW(x),0) -> loopW(x)
+
+  alt(0,loopP(x)) -> loopP(x)
+  alt(loopP(x),0) -> loopP(x)
+)
